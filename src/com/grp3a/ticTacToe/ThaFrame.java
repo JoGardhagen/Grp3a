@@ -1,6 +1,7 @@
 package com.grp3a.ticTacToe;
 
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -24,6 +25,7 @@ public class ThaFrame extends JFrame implements ActionListener{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(null);
 		this.setSize(500, 500);// förnster storlek
+		this.getContentPane().setBackground(Color.RED);//Ny Färg Röd :) 
 		this.setVisible(true);
 		this.add(button);
 	}
