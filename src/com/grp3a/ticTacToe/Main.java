@@ -2,27 +2,17 @@ package com.grp3a.ticTacToe;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class Main {
 
 	public static void main(String[] args) {
-		// main classen
-		// nytt från nu : ) 
-//		
-//		JFrame frame = new JFrame();
-//		frame.setSize(300,400);
-//		frame.setTitle("Tic-Tac-Toe : Grp3a");
-//		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//		frame.setVisible(true);
-//		//frame.(Color.red);
-//		//frame.setBackground(Color.red);
-//		JPanel prim = new JPanel();
-//		prim.setBackground(Color.red);
-//		prim.setVisible(true);
-//		
+
 ///////////////////////////////////Idé att vi ska gör GUI Lösning////////////////////////////////
 		
 		
@@ -34,9 +24,24 @@ public class Main {
 		
 		frame.getContentPane().add(primary);
 		frame.pack();// viktig
-		frame.setVisible(true);// viktig
-/////////////////////////////////////////////////////////////////////////////////////////////////		
+		frame.setVisible(true);// viktig	
 		
+///////////////////////////////////////Knapp Test  1   /////////////////////////////////////////	
+		
+		JButton button1 = new JButton("Ruta 0,0 ");
+		
+		button1.setBounds(10, 10, 100, 100);
+		frame.add(button1);
+		frame.setLayout(null);
+		button1.addActionListener(new ActionListener(){  
+			public void actionPerformed(ActionEvent e){  
+			           System.out.println("Ruta 0,0 == Clicked");  
+			        }  
+			    });  
+
+	
 	}
+	
+	
 
 }
