@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 
 //I stort sätt samma som innan men Construktas från sin egen Class
 public class ThaFrame extends JFrame implements ActionListener{
-	
+	//Nya knappar 
 	JButton button;// knapp
 	JButton button2;
 	JButton button3;
@@ -44,6 +44,7 @@ public class ThaFrame extends JFrame implements ActionListener{
 	}
 	// vad som händer när man trycker på knappen i nuläget inget mer en skriver ut 
 	// Test i konsolen
+	//ändrar nu Tecken till Kryss
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==button) {
