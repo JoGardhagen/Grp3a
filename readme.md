@@ -6,3 +6,8 @@ members : Joakim , Anna , Andom
 ## Goals
 
 Skapa ett Gui Tic-Tac-Toe
+
+
+
+
+Börjar hända saker vill nu få till logiken :) 
