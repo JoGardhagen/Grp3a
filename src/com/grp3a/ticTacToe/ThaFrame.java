@@ -1,6 +1,6 @@
 package com.grp3a.ticTacToe;
 
-
+//sida 376
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -34,7 +34,8 @@ public class ThaFrame extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==button) {
-			System.out.println("test");
+			//System.out.println("test");
+			button.setText("x");// ändrar texten till ett kryss iställt 
 		}
 		
 	}
