@@ -34,7 +34,7 @@ public class ThaFrame extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==button) {
-			//System.out.println("test");
+			System.out.println("test");
 			button.setText("x");// ändrar texten till ett kryss iställt 
 		}
 		
