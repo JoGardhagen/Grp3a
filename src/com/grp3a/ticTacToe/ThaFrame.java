@@ -12,14 +12,25 @@ import javax.swing.JFrame;
 public class ThaFrame extends JFrame implements ActionListener{
 	
 	JButton button;// knapp
-	
+	JButton button2;
+	JButton button3;
 	ThaFrame() {
 		
-		button = new JButton();
+		button = new JButton("1");
 		button.setBounds(100, 100, 100, 100);
 		button.addActionListener(this);
-		button.setText("Btn 1");
+		//button.setText("Btn 1");
 		button.setFocusable(false);
+		button2 = new JButton("2");
+		button2.setBounds(200, 100, 100, 100);
+		button2.addActionListener(this);
+		//button.setText("Btn 1");
+		button3 = new JButton("3");
+		button3.setBounds(300, 100, 100, 100);
+		button3.addActionListener(this);
+		//button.setText("Btn 1");
+		button3.setFocusable(false);
+		
 		
 		this.setTitle("Tic-Tac-Toe :  Grp3a.");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -28,6 +39,8 @@ public class ThaFrame extends JFrame implements ActionListener{
 		this.getContentPane().setBackground(Color.RED);//Ny Färg Röd :) 
 		this.setVisible(true);
 		this.add(button);
+		this.add(button2);
+		this.add(button3);
 	}
 	// vad som händer när man trycker på knappen i nuläget inget mer en skriver ut 
 	// Test i konsolen
@@ -37,6 +50,13 @@ public class ThaFrame extends JFrame implements ActionListener{
 			System.out.println("test");
 			button.setText("x");// ändrar texten till ett kryss iställt 
 		}
-		
+		if(e.getSource()==button2) {
+			System.out.println("test2");
+			button2.setText("x");
+		}
+		if(e.getSource()==button3) {
+			System.out.println("test3");
+			button3.setText("x");
+		}
 	}
 }
