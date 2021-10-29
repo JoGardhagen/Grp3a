@@ -69,11 +69,11 @@ public class ThaFrame extends JFrame implements ActionListener {
 			button[i].setText("");
 		}
 		
-		BorderLayout border =new BorderLayout();
+		//BorderLayout border =new BorderLayout();
 		lable.setBackground(Color.ORANGE);
 		lable.setBounds(100,100,100,100);
 		lable.setText("Test Lable");
-		border.addLayoutComponent(lable, accessibleContext);
+		//border.addLayoutComponent(lable, accessibleContext);
 		topPanel.add(lable);
 		topPanel.setPreferredSize(new Dimension(100,100));
 		topPanel.setBackground(Color.ORANGE);
