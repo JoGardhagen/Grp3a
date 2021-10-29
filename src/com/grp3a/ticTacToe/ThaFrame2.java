@@ -1,0 +1,74 @@
+package com.grp3a.ticTacToe;
+
+import java.awt.BorderLayout;
+//sida 376
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+
+//I stort sätt samma som innan men Construktas från sin egen Class
+@SuppressWarnings("Vet inte va detta är ...")
+public class ThaFrame2 extends JFrame implements ActionListener {
+
+
+	JButton[] button = new JButton[9];// för nya Knappar
+	JPanel buttonsPanel = new JPanel();// Panel för nya knappar
+	JFrame frame = new JFrame();
+	JLabel lable = new JLabel();
+	JPanel topPanel = new JPanel(); 
+
+	ThaFrame2() {
+
+
+		buttonsPanel.setLayout(new GridLayout(3, 3));
+		buttonsPanel.setPreferredSize(new Dimension(300,300));
+		//for loop för att ställa upp 9 knappar
+		for (int i = 0; i < 9; i++) {
+			button[i] = new JButton();
+			buttonsPanel.add(button[i]);
+			button[i].addActionListener(this);
+			button[i].setText("");
+		}
+		
+		lable.setBackground(Color.ORANGE);
+		lable.setText("Test Lable");
+		topPanel.add(lable);
+		topPanel.setPreferredSize(new Dimension(10,50));
+		topPanel.setBackground(Color.ORANGE);
+
+		frame.setTitle("Tic-Tac-Toe :  Grp3a.");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLayout(new BorderLayout());
+		frame.setSize(500, 500);// förnster storlek
+		frame.getContentPane().setBackground(Color.RED);// Ny Färg Röd :)
+		frame.setVisible(true);
+		frame.add(buttonsPanel,BorderLayout.CENTER);//paneler gör det möjligt att lägga saker var man vill :) 
+		frame.add(topPanel,BorderLayout.NORTH);
+		
+
+	}
+
+	// vad som händer när man trycker på knappen i nuläget inget mer en skriver ut
+	// Test i konsolen
+	// ändrar nu Tecken till Kryss
+	@Override
+	public void actionPerformed(ActionEvent e) {//ny listener för nya knapparna 
+		for(int i = 0;i<9;i++) {
+			if(e.getSource()==button[i]) {
+				button[i].setText("x");
+				
+			}// gissar på att det här vi skall ha någon form av if sats för att 
+			// slänga in logiken.
+		}
+
+	}
+}

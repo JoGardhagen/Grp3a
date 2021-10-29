@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 //sida 376
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,7 +20,7 @@ import javax.swing.JPanel;
 public class ThaFrame extends JPanel implements ActionListener {
 
 	JButton[] button = new JButton[9]; 			// knapparna
-	Random random = new Random(); 				// Slumpar vem som går först
+	//Random random = new Random(); 				// Slumpar vem som går först
 	JFrame playFrame = new JFrame(); 			// Själva ramen för spelet
 	JPanel buttonPanels = new JPanel(); 		// Knapp panelen
 	JPanel titlePanels = new JPanel(); 			// deklarerar Panelen 
@@ -33,10 +34,10 @@ public class ThaFrame extends JPanel implements ActionListener {
 	ThaFrame() {
 //Sen har jag egentligen bara ändrat namn och storlek för att det ska få plats, Vi kan ändra färger och allt sen för mig kvittar det! :D
 		
-		playFrame.setTitle("Tic-Tac-Toe :  Grp3a.");
+		playFrame.setTitle("Tic-Tac-Toe :  Grp3a.");// Sätter Applikations Titeln 
 		playFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		playFrame.setSize(800, 500);// förnster storlek
+		playFrame.setSize(600, 600);// förnster storlek
 		playFrame.getContentPane().setBackground(Color.BLACK);// Ny Färg Röd :)
 		playFrame.setLayout(new BorderLayout());
 		playFrame.setVisible(true);
@@ -48,7 +49,7 @@ public class ThaFrame extends JPanel implements ActionListener {
 		textfield.setOpaque(true); 							// Satt på true då vi inte vill att annan färg ska "lysa igenom" textrutan
 
 		titlePanels.setLayout(new BorderLayout());		// Titel layout och storlek
-		titlePanels.setBounds(0, 0, 900, 900);
+		//titlePanels.setBounds(0, 0, 900, 900);
 
 		buttonPanels.setLayout(new GridLayout(3, 3));			// Gör spel planen 3x3
 		buttonPanels.setBackground(Color.RED);					// Rödbakgrund på spelplan
@@ -57,9 +58,9 @@ public class ThaFrame extends JPanel implements ActionListener {
 		{			// lägger ut knapparna på spel planen
 			button[i] = new JButton();
 			buttonPanels.add(button[i]);
-			button[i].setFont(new Font("Bell MT", Font.ROMAN_BASELINE, 100));
+			//button[i].setFont(new Font("Bell MT", Font.ROMAN_BASELINE, 100));
 			button[i].addActionListener(this);
-			button[i].setFocusable(false);
+			//button[i].setFocusable(false);
 		}
 		
 		JLabel t1 = new JLabel("Player X");					// Deklarerar ny Label för spelare x och o
