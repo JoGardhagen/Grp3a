@@ -3,14 +3,17 @@ package com.grp3a.ticTacToe;
 import java.awt.BorderLayout;
 //sida 376
 import java.awt.Color;
-
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+
 
 //I stort sätt samma som innan men Construktas från sin egen Class
 public class ThaFrame extends JFrame implements ActionListener {
@@ -22,6 +25,8 @@ public class ThaFrame extends JFrame implements ActionListener {
 	JButton[] button = new JButton[9];// för nya Knappar
 	JPanel buttonsPanel = new JPanel();// Panel för nya knappar
 	JFrame frame = new JFrame();
+	JLabel lable = new JLabel();
+	JPanel topPanel = new JPanel(); 
 
 	ThaFrame() {
 
@@ -53,6 +58,7 @@ public class ThaFrame extends JFrame implements ActionListener {
 //	    button_panel.setLayout(new GridLayout(3,3));
 //	    button_panel.setBackground(Color.RED);
 		buttonsPanel.setLayout(new GridLayout(3, 3));
+		buttonsPanel.setPreferredSize(new Dimension(300,300));
 		//for loop för att ställa upp 9 knappar
 		for (int i = 0; i < 9; i++) {
 			button[i] = new JButton();
@@ -62,14 +68,26 @@ public class ThaFrame extends JFrame implements ActionListener {
 			// button[i].setFocusable(false);
 			button[i].setText("");
 		}
-
+		
+		BorderLayout border =new BorderLayout();
+		lable.setBackground(Color.ORANGE);
+		lable.setBounds(100,100,100,100);
+		lable.setText("Test Lable");
+		border.addLayoutComponent(lable, accessibleContext);
+		topPanel.add(lable);
+		topPanel.setPreferredSize(new Dimension(100,100));
+		topPanel.setBackground(Color.ORANGE);
+		//buttonsPanel.add(lable);
+		//Border border = BorderFactory.createLineBorder(Color.RED);
 		frame.setTitle("Tic-Tac-Toe :  Grp3a.");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(new BorderLayout());
 		frame.setSize(500, 500);// förnster storlek
 		frame.getContentPane().setBackground(Color.RED);// Ny Färg Röd :)
 		frame.setVisible(true);
-		frame.add(buttonsPanel);
+		frame.add(buttonsPanel,BorderLayout.CENTER);//paneler gör det möjligt att lägga saker var man vill :) 
+		frame.add(topPanel,BorderLayout.NORTH);
+		
 //		this.add(button);
 //		this.add(button2);
 //		this.add(button3);
