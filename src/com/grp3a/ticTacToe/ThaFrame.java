@@ -16,111 +16,180 @@ import javax.swing.JPanel;
 
 
 //I stort sätt samma som innan men Construktas från sin egen Class
-public class ThaFrame extends JFrame implements ActionListener {
-	// Nya knappar
-//	JButton button;// knapp
-//	JButton button2;
-//	JButton button3;
-//	JButton button4;
-	JButton[] button = new JButton[9];// för nya Knappar
-	JPanel buttonsPanel = new JPanel();// Panel för nya knappar
-	JFrame frame = new JFrame();
-	JLabel lable = new JLabel();
-	JPanel topPanel = new JPanel(); 
+public class ThaFrame extends JPanel implements ActionListener {
+
+	JButton[] button = new JButton[9]; 			// knapparna
+	Random random = new Random(); 				// Slumpar vem som går först
+	JFrame playFrame = new JFrame(); 			// Själva ramen för spelet
+	JPanel buttonPanels = new JPanel(); 		// Knapp panelen
+	JPanel titlePanels = new JPanel(); 			// deklarerar Panelen 
+
+	JLabel textfield = new JLabel(); 			// Deklarerar text rutor 
+	int xWinsCount;								// Kunna räkna poängen???????????????????????????????????????????
+	int oWinsCount;								// HAar inte gjort ngt där tänkte vi kanske kan komma på ngt coolt
+
+	boolean playerOne; 							// Sätts för att kontrollera vem som börjar. antingen true eller false
 
 	ThaFrame() {
-
-//		button = new JButton("1");
-//		button.setBounds(100, 100, 100, 100);
-//		button.addActionListener(this);
-//		//button.setText("Btn 1");
-//		button.setFocusable(false);
-//		button2 = new JButton("2");
-//		button2.setBounds(200, 100, 100, 100);
-//		button2.addActionListener(this);
-//		//button.setText("Btn 1");
-//		button3 = new JButton("3");
-//		button3.setBounds(300, 100, 100, 100);
-//		button3.addActionListener(this);
-//		//button.setText("Btn 1");
-//		button3.setFocusable(false);
-//		button4 = new JButton("4");
-//		button4.setBounds(100,200,100,100);
-//		button4.addActionListener(this);
+//Sen har jag egentligen bara ändrat namn och storlek för att det ska få plats, Vi kan ändra färger och allt sen för mig kvittar det! :D
 		
-//	    //Random random = new Random();        // To random pick who's going first.
-//	    JFrame play_frame = new JFrame();    // The frame work
-////	    JPanel button_panel = new JPanel();    // The button panels
-////	    JPanel title_panel = new JPanel();    // The panel for the Titel and the one that will tell the random player that gets to start
-////	    JLabel textfield = new JLabel();    // text fields for labels
-////	    boolean playerOne;                    // to set who's who. Don't need to have one for playerTwo since the boolean is either true or false.
-//
-//	    button_panel.setLayout(new GridLayout(3,3));
-//	    button_panel.setBackground(Color.RED);
-		buttonsPanel.setLayout(new GridLayout(3, 3));
-		buttonsPanel.setPreferredSize(new Dimension(300,300));
-		//for loop för att ställa upp 9 knappar
-		for (int i = 0; i < 9; i++) {
+		playFrame.setTitle("Tic-Tac-Toe :  Grp3a.");
+		playFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		playFrame.setSize(800, 500);// förnster storlek
+		playFrame.getContentPane().setBackground(Color.BLACK);// Ny Färg Röd :)
+		playFrame.setLayout(new BorderLayout());
+		playFrame.setVisible(true);
+		textfield.setBackground(Color.black);						// Bakgrundsfärg för spel titel
+		textfield.setForeground(Color.RED);							// Font färg för titeltext
+		textfield.setFont(new Font("Bell MT", Font.ITALIC, 45));	 // Font för Spel titel
+		textfield.setHorizontalAlignment(JLabel.CENTER);			// Horizontell titel Centrerad
+		textfield.setText("Välkommen till Tic Tac Toe!");
+		textfield.setOpaque(true); 							// Satt på true då vi inte vill att annan färg ska "lysa igenom" textrutan
+
+		titlePanels.setLayout(new BorderLayout());		// Titel layout och storlek
+		titlePanels.setBounds(0, 0, 900, 900);
+
+		buttonPanels.setLayout(new GridLayout(3, 3));			// Gör spel planen 3x3
+		buttonPanels.setBackground(Color.RED);					// Rödbakgrund på spelplan
+
+		for (int i = 0; i < 9; i++) 
+		{			// lägger ut knapparna på spel planen
 			button[i] = new JButton();
-			buttonsPanel.add(button[i]);
-			// button[i].setFont(new Font("MV Boli",Font.BOLD,120));
+			buttonPanels.add(button[i]);
+			button[i].setFont(new Font("Bell MT", Font.ROMAN_BASELINE, 100));
 			button[i].addActionListener(this);
-			// button[i].setFocusable(false);
-			button[i].setText("");
+			button[i].setFocusable(false);
 		}
 		
-		//BorderLayout border =new BorderLayout();
-		lable.setBackground(Color.ORANGE);
-		lable.setBounds(100,100,100,100);
-		lable.setText("Test Lable");
-		//border.addLayoutComponent(lable, accessibleContext);
-		topPanel.add(lable);
-		topPanel.setPreferredSize(new Dimension(100,100));
-		topPanel.setBackground(Color.ORANGE);
-		//buttonsPanel.add(lable);
-		//Border border = BorderFactory.createLineBorder(Color.RED);
-		frame.setTitle("Tic-Tac-Toe :  Grp3a.");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLayout(new BorderLayout());
-		frame.setSize(500, 500);// förnster storlek
-		frame.getContentPane().setBackground(Color.RED);// Ny Färg Röd :)
-		frame.setVisible(true);
-		frame.add(buttonsPanel,BorderLayout.CENTER);//paneler gör det möjligt att lägga saker var man vill :) 
-		frame.add(topPanel,BorderLayout.NORTH);
+		JLabel t1 = new JLabel("Player X");					// Deklarerar ny Label för spelare x och o
+		t1.setFont(new Font("Bell MT", Font.BOLD, 25));		// Textsnitt för sido text på spelplan
+		t1.setForeground(Color.RED);
+		JLabel t2 = new JLabel("Player O");			
+		t2.setFont(new Font("Bell MT", Font.BOLD, 25));		// Textsnitt och storlek samt i fetstil
+		t2.setForeground(Color.red);
 		
-//		this.add(button);
-//		this.add(button2);
-//		this.add(button3);
-//		this.add(button4);
+		titlePanels.add(textfield);
+		playFrame.add(titlePanels, BorderLayout.NORTH);
+		playFrame.add(buttonPanels);
+		playFrame.add(t1, BorderLayout.WEST);		// Sätter text på höger sida	
+		playFrame.add(t2, BorderLayout.EAST);		// Sätter text på vänster sida
+
 	}
 
-	// vad som händer när man trycker på knappen i nuläget inget mer en skriver ut
-	// Test i konsolen
-	// ändrar nu Tecken till Kryss
-	@Override
-	public void actionPerformed(ActionEvent e) {//ny listener för nya knapparna 
-		for(int i = 0;i<9;i++) {
-			if(e.getSource()==button[i]) {
-				button[i].setText("x");
-				
-			}// gissar på att det här vi skall ha någon form av if sats för att 
-			// slänga in logiken.
+	
+			// Kontrollerar om X vinner, 8 olika möjligheter De ba Copy paste för X och O
+	
+	// Man kanske kan göra en ForLoop här istället??
+	
+	
+	public  void check() {
+	
+		if 		((button[0].getText() == "X") && (button[1].getText() == "X") && (button[2].getText() == "X")) {
+			winner_X(0, 1, 2);
 		}
-//		if(e.getSource()==button) {
-//			System.out.println("test");
-//			button.setText("x");// ändrar texten till ett kryss iställt 
-//		}
-//		if(e.getSource()==button2) {
-//			System.out.println("test2");
-//			button2.setText("x");
-//		}
-//		if(e.getSource()==button3) {
-//			System.out.println("test3");
-//			button3.setText("x");
-//		}
-//		if(e.getSource()==button4) {
-//			System.out.println("test 4");
-//			button4.setText("x");
-//		}
+		else if ((button[3].getText() == "X") && (button[4].getText() == "X") && (button[5].getText() == "X")) {
+			winner_X(3, 4, 5);
+		}
+		else if ((button[6].getText() == "X") && (button[7].getText() == "X") && (button[8].getText() == "X")) {
+			winner_X(6, 7, 8);// --------------------------------------
+		}
+		else if ((button[0].getText() == "X") && (button[3].getText() == "X") && (button[6].getText() == "X")) {
+			winner_X(0, 3, 6);
+		}
+		else if ((button[1].getText() == "X") && (button[4].getText() == "X") && (button[7].getText() == "X")) {
+			winner_X(1, 4, 7);
+		}
+		else if ((button[2].getText() == "X") && (button[5].getText() == "X") && (button[8].getText() == "X")) {
+			winner_X(2, 5, 8);
+		}
+		else if ((button[0].getText() == "X") && (button[4].getText() == "X") && (button[8].getText() == "X")) {
+			winner_X(0, 4, 8);
+		}
+		else if ((button[2].getText() == "X") && (button[4].getText() == "X") && (button[6].getText() == "X")) {
+			winner_X(2, 4, 6);
+		}
+
+		
+		// Kontrollerar om O vinner, 8 olika möjligheter
+		
+		else if  ((button[0].getText() == "O") && (button[1].getText() == "O") && (button[2].getText() == "O")) {
+			winner_O(0, 1, 2);
+		}
+		else if  ((button[3].getText() == "O") && (button[4].getText() == "O") && (button[5].getText() == "O")) {
+			winner_O(3, 4, 5);
+		}
+		else if ((button[6].getText() == "O") && (button[7].getText() == "O") && (button[8].getText() == "O")) {
+			winner_O(6, 7, 8);
+		}
+		else if ((button[0].getText() == "O") && (button[3].getText() == "O") && (button[6].getText() == "O")) {
+			winner_O(0, 3, 6);
+		}
+		else if ((button[1].getText() == "O") && (button[4].getText() == "O") && (button[7].getText() == "O")) {
+			winner_O(1, 4, 7);
+		}
+		else if ((button[2].getText() == "O") && (button[5].getText() == "O") && (button[8].getText() == "O")) {
+			winner_O(2, 5, 8);
+		}
+		else if ((button[0].getText() == "O") && (button[4].getText() == "O") && (button[8].getText() == "O")) {
+			winner_O(0, 4, 8);
+		}
+		else if ((button[2].getText() == "O") && (button[4].getText() == "O") && (button[6].getText() == "O")) {
+			winner_O(2, 4, 6);
+		}
+
 	}
+
+			public void winner_X(int a, int b, int c) {
+					button[a].setBackground(Color.BLACK);
+					button[b].setBackground(Color.BLACK);
+					button[c].setBackground(Color.BLACK);
+				for (int i = 0; i < 9; i++) {
+					button[i].setEnabled(false);
+				}
+					textfield.setText("Winner is X");
+				xWinsCount++;
+			}
+
+			public void winner_O(int a, int b, int c) {
+					button[a].setBackground(Color.BLACK);
+					button[b].setBackground(Color.BLACK);
+					button[c].setBackground(Color.BLACK);
+				for (int i = 0; i < 9; i++) {
+					button[i].setEnabled(false);
+				}
+					textfield.setText("Winner is O");
+				oWinsCount++;
+	}
+
+						
+			
+	@Override		// Visar vems tur det är och markerar i rutorna X eller O
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		for (int i = 0; i < 9; i++) {
+			if (e.getSource() == button[i]) {
+				if (playerOne) {
+					if (button[i].getText() == "") {
+						button[i].setForeground(Color.red);
+						button[i].setText("X");
+						playerOne = false;
+						textfield.setText("O's turn");
+						check();
+
+					}
+				} else {
+					if (button[i].getText() == "") {
+						button[i].setForeground(Color.black);
+						button[i].setText("O");
+						playerOne = true;
+						textfield.setText("X's turn");
+						check();
+
+					}
+				}
+			}
+		}
+	}
+
 }
