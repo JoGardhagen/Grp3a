@@ -11,3 +11,5 @@ Skapa ett Gui Tic-Tac-Toe
 
 
 Börjar hända saker vill nu få till logiken :) 
+
+Nu med två varianter

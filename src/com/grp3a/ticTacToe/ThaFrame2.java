@@ -8,41 +8,40 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-
 //I stort sätt samma som innan men Construktas från sin egen Class
+
 @SuppressWarnings("Vet inte va detta är ...")
 public class ThaFrame2 extends JFrame implements ActionListener {
-
 
 	JButton[] button = new JButton[9];// för nya Knappar
 	JPanel buttonsPanel = new JPanel();// Panel för nya knappar
 	JFrame frame = new JFrame();
 	JLabel lable = new JLabel();
-	JPanel topPanel = new JPanel(); 
-
+	JPanel topPanel = new JPanel();
+	boolean cross;//bools variable för 'X'
+	
+	
 	ThaFrame2() {
-
-
+		
 		buttonsPanel.setLayout(new GridLayout(3, 3));
-		buttonsPanel.setPreferredSize(new Dimension(300,300));
-		//for loop för att ställa upp 9 knappar
+		buttonsPanel.setPreferredSize(new Dimension(300, 300));
+		// for loop för att ställa upp 9 knappar
 		for (int i = 0; i < 9; i++) {
 			button[i] = new JButton();
 			buttonsPanel.add(button[i]);
 			button[i].addActionListener(this);
 			button[i].setText("");
 		}
-		
+
 		lable.setBackground(Color.ORANGE);
 		lable.setText("Test Lable");
 		topPanel.add(lable);
-		topPanel.setPreferredSize(new Dimension(10,50));
+		topPanel.setPreferredSize(new Dimension(10, 50));
 		topPanel.setBackground(Color.ORANGE);
 
 		frame.setTitle("Tic-Tac-Toe :  Grp3a.");
@@ -51,9 +50,8 @@ public class ThaFrame2 extends JFrame implements ActionListener {
 		frame.setSize(500, 500);// förnster storlek
 		frame.getContentPane().setBackground(Color.RED);// Ny Färg Röd :)
 		frame.setVisible(true);
-		frame.add(buttonsPanel,BorderLayout.CENTER);//paneler gör det möjligt att lägga saker var man vill :) 
-		frame.add(topPanel,BorderLayout.NORTH);
-		
+		frame.add(buttonsPanel, BorderLayout.CENTER);// paneler gör det möjligt att lägga saker var man vill :)
+		frame.add(topPanel, BorderLayout.NORTH);
 
 	}
 
@@ -61,14 +59,25 @@ public class ThaFrame2 extends JFrame implements ActionListener {
 	// Test i konsolen
 	// ändrar nu Tecken till Kryss
 	@Override
-	public void actionPerformed(ActionEvent e) {//ny listener för nya knapparna 
-		for(int i = 0;i<9;i++) {
-			if(e.getSource()==button[i]) {
-				button[i].setText("x");
-				
-			}// gissar på att det här vi skall ha någon form av if sats för att 
-			// slänga in logiken.
-		}
+	public void actionPerformed(ActionEvent e) {// ny listener för nya knapparna
+		for (int i = 0; i < 9; i++) {
+			if (e.getSource() == button[i]) {
+				if (cross) {//när true är det 'O' tur, 
+					if (button[i].getText() == "") {
+						button[i].setText("o");
+						cross = false;
+						
+					}
 
+				} else {//när false är det 'X' tur
+					if (button[i].getText() == "") {
+						button[i].setText("x");
+						cross = true;//vi kan säga logiken är när Kryss lagt sitt svar är Boolska variabeln == True
+					}
+				}
+
+			}
+
+		}
 	}
 }
