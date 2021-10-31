@@ -3,7 +3,6 @@ package com.grp3a.ticTacToe;
 public class PointsCount {
 
 	public static void main(String[] args) {
-		
 		boolean playerWon = false;
         boolean computerWon = false;
         
@@ -12,7 +11,6 @@ public class PointsCount {
 			player1WinCount++;
             System.out.println("The player has won " + player1WinCount + " time(s)");
         }
-
 
 		if (computerWon == true) {
            int player2WinCount = 0;
