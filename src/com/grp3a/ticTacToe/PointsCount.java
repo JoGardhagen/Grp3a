@@ -20,6 +20,7 @@ public class PointsCount {
 
         if(playerWon == true || computerWon == true){
         //Nu har jag stulit en kod som visar hur du kan lägga in en counter med if-kod
+        	
         }
 	}
 }

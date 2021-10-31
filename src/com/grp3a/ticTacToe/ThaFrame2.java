@@ -64,19 +64,20 @@ public class ThaFrame2 extends JFrame implements ActionListener {
 			if (e.getSource() == button[i]) {
 				if (cross) {//när true är det 'O' tur, 
 					if (button[i].getText() == "") {
-						button[i].setText("o");
+						button[i].setText("O");
 						cross = false;
 						
 					}
 
 				} else {//när false är det 'X' tur
 					if (button[i].getText() == "") {
-						button[i].setText("x");
+						button[i].setText("X");
 						cross = true;//vi kan säga logiken är när Kryss lagt sitt svar är Boolska variabeln == True
 					}
 				}
 
 			}
+			
 
 		}
 	}
