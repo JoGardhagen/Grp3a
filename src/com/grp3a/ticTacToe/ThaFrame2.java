@@ -56,6 +56,15 @@ public class ThaFrame2 extends JFrame implements ActionListener {
 		frame.add(topPanel, BorderLayout.NORTH);
 
 	}
+	public void AiRoll() {
+		for (int i = 0; i < 9; i++) {
+			int aiRoll = rand.nextInt(8);// generar ett slumptal 
+			if (button[aiRoll].getText() == "") {// kastar in talet som index i arrayenn ser om elementet för index är blankt 
+				button[aiRoll].setText("O");// om det är blankt set text Till 'O'
+				cross = false;	//cross false 
+				}
+		}
+	}
 	
 	// vad som händer när man trycker på knappen i nuläget inget mer en skriver ut
 	// Test i konsolen
@@ -65,7 +74,7 @@ public class ThaFrame2 extends JFrame implements ActionListener {
 		for (int i = 0; i < 9; i++) {
 			if (e.getSource() == button[i]) {
 				if (cross) {//när true är det 'O' tur, 
-
+					//AiRoll();
 					int aiRoll = rand.nextInt(8);// generar ett slumptal 
 					if (button[aiRoll].getText() == "") {// kastar in talet som index i arrayenn ser om elementet för index är blankt 
 						button[aiRoll].setText("O");// om det är blankt set text Till 'O'
