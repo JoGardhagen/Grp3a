@@ -7,6 +7,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -24,6 +25,7 @@ public class ThaFrame2 extends JFrame implements ActionListener {
 	JLabel lable = new JLabel();
 	JPanel topPanel = new JPanel();
 	boolean cross;//bools variable för 'X'
+	Random rand = new Random();
 	
 	
 	ThaFrame2() {
@@ -54,7 +56,7 @@ public class ThaFrame2 extends JFrame implements ActionListener {
 		frame.add(topPanel, BorderLayout.NORTH);
 
 	}
-
+	
 	// vad som händer när man trycker på knappen i nuläget inget mer en skriver ut
 	// Test i konsolen
 	// ändrar nu Tecken till Kryss
@@ -63,19 +65,22 @@ public class ThaFrame2 extends JFrame implements ActionListener {
 		for (int i = 0; i < 9; i++) {
 			if (e.getSource() == button[i]) {
 				if (cross) {//när true är det 'O' tur, 
-					if (button[i].getText() == "") {
-						button[i].setText("O");
-						cross = false;
-						
-					}
+
+					int aiRoll = rand.nextInt(8);// generar ett slumptal 
+					if (button[aiRoll].getText() == "") {// kastar in talet som index i arrayenn ser om elementet för index är blankt 
+						button[aiRoll].setText("O");// om det är blankt set text Till 'O'
+						cross = false;	//cross false 
+						}
+					// funkar något men man måste spamma på en knapp för att han skall generera 
+					// ett en AI Roll.....
+					// tittar på lösning i skrivande stund :) 
+					
 
 				} else {//när false är det 'X' tur
 					if (button[i].getText() == "") {
 						button[i].setText("X");
 						cross = true;//vi kan säga logiken är när Kryss lagt sitt svar är Boolska variabeln == True
-						//for(int j = 0;j<button[i];j++) {
-							
-						//}
+						
 					}
 				}
 
