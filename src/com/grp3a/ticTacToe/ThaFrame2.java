@@ -73,7 +73,7 @@ public class ThaFrame2 extends JFrame implements ActionListener {
 						}
 					// funkar något men man måste spamma på en knapp för att han skall generera 
 					// ett en AI Roll.....
-					// tittar på lösning i skrivande stund :) 
+					// tittar på lösning i skrivande stund :)   
 					
 
 				} else {//när false är det 'X' tur
