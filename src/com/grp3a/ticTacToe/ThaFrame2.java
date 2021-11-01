@@ -58,9 +58,10 @@ public class ThaFrame2 extends JFrame implements ActionListener {
 		frame.setLayout(new BorderLayout());
 		frame.setSize(500, 500);// förnster storlek
 		frame.getContentPane().setBackground(Color.RED);// Ny Färg Röd :)
-		frame.setVisible(true);
+		frame.setBounds(300, 300, 500, 500);// fönstret ploppar upp närmre mitten istället för i hörnen när man har "0,0"
 		frame.add(buttonsPanel, BorderLayout.CENTER);// paneler gör det möjligt att lägga saker var man vill :)
 		frame.add(topPanel, BorderLayout.NORTH);
+		frame.setVisible(true);
 
 	
 	}
