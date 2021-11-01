@@ -36,7 +36,7 @@ public class EvenAnotherFrame extends JFrame implements ActionListener {
 		frame.add(button);
 		frame.add(button2);
 	}
-	
+	 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == button) {// man kan egentligen slänga in vad som helst i dessa KodBlock om jag har fattat rätt.
