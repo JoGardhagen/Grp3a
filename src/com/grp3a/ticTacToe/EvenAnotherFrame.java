@@ -41,7 +41,7 @@ public class EvenAnotherFrame extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == button) {// man kan egentligen slänga in vad som helst i dessa KodBlock om jag har fattat rätt.
 			System.out.println("Test 1");// Denna gång öppnar den upp nya fönster.
-			new ThaFrame(); // öppnar upp den nya spelplanen 
+			//new ThaFrame(); // öppnar upp den nya spelplanen 
 		}
 		if (e.getSource() == button2) {
 			System.out.println("Test 2");

@@ -73,6 +73,9 @@ public class ThaFrame2 extends JFrame implements ActionListener {
 					if (button[i].getText() == "") {
 						button[i].setText("x");
 						cross = true;//vi kan säga logiken är när Kryss lagt sitt svar är Boolska variabeln == True
+						//for(int j = 0;j<button[i];j++) {
+							
+						//}
 					}
 				}
 
