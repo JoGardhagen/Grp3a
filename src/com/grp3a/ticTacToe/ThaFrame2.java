@@ -55,16 +55,16 @@ public class ThaFrame2 extends JFrame implements ActionListener {
 		frame.add(buttonsPanel, BorderLayout.CENTER);// paneler gör det möjligt att lägga saker var man vill :)
 		frame.add(topPanel, BorderLayout.NORTH);
 
-	}
-	public void AiRoll() {
-		for (int i = 0; i < 9; i++) {
-			int aiRoll = rand.nextInt(8);// generar ett slumptal 
-			if (button[aiRoll].getText() == "") {// kastar in talet som index i arrayenn ser om elementet för index är blankt 
-				button[aiRoll].setText("O");// om det är blankt set text Till 'O'
-				cross = false;	//cross false 
-				}
-		}
-	}
+	}//gör inget just nu 
+//	public void AiRoll() {
+//		for (int i = 0; i < 9; i++) {
+//			int aiRoll = rand.nextInt(8);// generar ett slumptal 
+//			if (button[aiRoll].getText() == "") {// kastar in talet som index i arrayenn ser om elementet för index är blankt 
+//				button[aiRoll].setText("O");// om det är blankt set text Till 'O'
+//				cross = false;	//cross false 
+//				}
+//		}
+//	}
 	
 	// vad som händer när man trycker på knappen i nuläget inget mer en skriver ut
 	// Test i konsolen
