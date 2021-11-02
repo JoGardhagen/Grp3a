@@ -3,7 +3,15 @@ package com.grp3a.ticTacToe.textBased;
 import java.util.*;
 
 public class Main {
-//    ||
+/*Check Lista för arbetet :: // notera klar när klar. 
+ * ? switch stat för aiRoll.
+ * ? gameLoop för att få spelet att fortsätta
+ * ? win or Lose logit.
+ * ? replay funk  
+ * 
+ * 
+ * 
+ * */
 //    ||
 //     | |
 
@@ -16,10 +24,12 @@ public class Main {
 		System.out.println("skriv koordinater För 'X' 1 till 9");
 
 		int xCordinate = scan.nextInt();// tar emot ett värde istället för 2.
-		XMove(xCordinate);// anropar XMove metod som omvandlar xCor till 2 värden och slänger in 'X' i
-					// Playboard
+		XMove(xCordinate);// anropar XMove metod som omvandlar xCor till 2 värden och 
+					//slänger in 'X' i Playboard
 
 		printGameBoard();
+		//
+		System.out.println("Computer 'O'");
 		int airoll = rand.nextInt(2);
 		playBoard[airoll][airoll] = 'O';
 		printGameBoard();
@@ -28,11 +38,12 @@ public class Main {
 
 // Måla ut spelplanen med hjälp av en nestlad for-loop 3x3
 	public static void printGameBoard() {
-		System.out.println("");
+		//System.out.println("");
 		for (int rad = 0; rad < 3; rad++) {
 			for (int pel = 0; pel < 3; pel++) {
 
-				System.out.print("[" + playBoard[rad][pel] + "]" + rad + "," + pel);
+				//System.out.print("[" + playBoard[rad][pel] + "]" + rad + "," + pel);
+				System.out.print("[" + playBoard[rad][pel] + "]" );// som innan fast visar inte x o y Korrdinaterna
 			}
 			System.out.println();
 		}
