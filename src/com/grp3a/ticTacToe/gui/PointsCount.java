@@ -1,4 +1,4 @@
-package com.grp3a.ticTacToe;
+package com.grp3a.ticTacToe.gui;
 
 public class PointsCount {
 

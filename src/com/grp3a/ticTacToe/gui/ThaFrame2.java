@@ -1,4 +1,4 @@
-package com.grp3a.ticTacToe;
+package com.grp3a.ticTacToe.gui;
 
 import java.awt.BorderLayout;
 //sida 376
@@ -82,17 +82,30 @@ public class ThaFrame2 extends JFrame implements ActionListener {
 					// funkar något men man måste spamma på en knapp för att han skall generera 
 					// ett en AI Roll.....
 					// tittar på lösning i skrivande stund :)   
-					
+//					do {
+//						int aiRoll = rand.nextInt(8);// generar ett slumptal 
+//						if (button[aiRoll].getText() == "") {// kastar in talet som index i arrayenn ser om elementet för index är blankt 
+//							button[aiRoll].setText("O");// om det är blankt set text Till 'O'
+//							cross = false;
+//							}
+//					}while(cross);
 
 				} else {//när false är det 'X' tur
 					if (button[i].getText() == "") {
 						button[i].setText("X");
 						cross = true;//vi kan säga logiken är när Kryss lagt sitt svar är Boolska variabeln == True
-						int aiRoll = rand.nextInt(8);// generar ett slumptal 
-						if (button[aiRoll].getText() == "") {// kastar in talet som index i arrayenn ser om elementet för index är blankt 
-							button[aiRoll].setText("O");// om det är blankt set text Till 'O'
-							cross = false;	//cross false 
-							}
+//						int aiRoll = rand.nextInt(8);// generar ett slumptal 
+//						if (button[aiRoll].getText() == "") {// kastar in talet som index i arrayenn ser om elementet för index är blankt 
+//							button[aiRoll].setText("O");// om det är blankt set text Till 'O'
+//							cross = false;	//cross false 
+//							}
+						do {
+							int aiRoll = rand.nextInt(8);// generar ett slumptal 
+							if (button[aiRoll].getText() == "") {// kastar in talet som index i arrayenn ser om elementet för index är blankt 
+								button[aiRoll].setText("O");// om det är blankt set text Till 'O'
+								cross = false;
+								}
+						}while(cross);
 					}
 				}
 
@@ -107,7 +120,7 @@ public class ThaFrame2 extends JFrame implements ActionListener {
 			new ThaFrame2();
 //			frame.getContentPane().invalidate();
 //			frame.getContentPane().validate();
-//			frame.getContentPane().repaint();
+			frame.getContentPane().repaint();
 		}
 	}
 }
