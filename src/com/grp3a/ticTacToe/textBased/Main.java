@@ -8,16 +8,60 @@ public class Main {
 //     | |
 
     static char [][] playBoard = new char [3][3];
-
-    public static void main(String[] args) {
-    Random rand= new Random();
-    Scanner scan = new Scanner(System.in);
+    static Scanner scan = new Scanner(System.in);
     
-    System.out.println("skriv koordinater För 'X'");
-    int row =scan.nextInt();
-    int column =scan.nextInt();
+    public static void main(String[] args) {
+    	
+    Random rand= new Random();
+    System.out.println("skriv koordinater För 'X' 1 till 9");
+    
+    int xCor =scan.nextInt();// tar emot ett värde istället för 2. 
+    int row;
+	int column;
+	
+	//switch sats som omvandlar det användaren skriver in till x o y koordinater 
+    switch(xCor) {
+	   case 1:  row = 0; 
+	   		column=0;
+	   		playBoard[row][column]= 'X';
+	   		break;
+	   case 2:  row = 0; 
+			column=1;
+			playBoard[row][column]= 'X';
+			break;
+	   case 3 :  row = 0; 
+			column=2;
+			playBoard[row][column]= 'X';
+			break;	
+	   case 4:  row = 1; 
+			column=0;
+			playBoard[row][column]= 'X';
+			break;
+	   case 5:  row = 1; 
+			column=1;
+			playBoard[row][column]= 'X';
+			break;
+	   case 6:  row = 1; 
+			column=2;
+			playBoard[row][column]= 'X';
+			break;
+	   case 7:  row = 2; 
+			column=0;
+			playBoard[row][column]= 'X';
+			break;
+	   case 8:  row = 2; 
+			column=1;
+			playBoard[row][column]= 'X';
+			break;
+	   case 9:  row = 2; 
+			column=2;
+			playBoard[row][column]= 'X';
+			break;
+	   }
 
-    playBoard[row][column]= 'X';
+    //playBoard[row][column]= 'X';
+    
+   // playBoard[row][column]= 'X';
     
     printGameBoard();
     int airoll=rand.nextInt(2);
@@ -36,5 +80,6 @@ public class Main {
     System.out.println();
         }
     }
+   
 }
 
