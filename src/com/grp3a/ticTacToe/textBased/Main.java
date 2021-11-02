@@ -4,8 +4,8 @@ import java.util.*;
 
 public class Main {
 /*Check Lista för arbetet :: // notera klar när klar. 
- * ? switch stat för aiRoll.
- * ? gameLoop för att få spelet att fortsätta
+ * ? switch stat för aiRoll. : Jocke Fixar
+ * ? gameLoop för att få spelet att fortsätta : Anna Fixar
  * ? win or Lose logit.
  * ? replay funk  
  * 
