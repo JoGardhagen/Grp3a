@@ -15,8 +15,8 @@ public class Main {
 		Random rand = new Random();
 		System.out.println("skriv koordinater För 'X' 1 till 9");
 
-		int xCor = scan.nextInt();// tar emot ett värde istället för 2.
-		XMove(xCor);// anropar XMove metod som omvandlar xCor till 2 värden och slänger in 'X' i
+		int xCordinate = scan.nextInt();// tar emot ett värde istället för 2.
+		XMove(xCordinate);// anropar XMove metod som omvandlar xCor till 2 värden och slänger in 'X' i
 					// Playboard
 
 		printGameBoard();
