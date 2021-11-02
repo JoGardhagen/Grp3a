@@ -6,6 +6,8 @@ members : Joakim , Anna , Andom
 ## Goals
 
 Skapa ett Gui Tic-Tac-Toe
+Ombytt Nu 2 varianter 1 Gui 
+1 Konsolvariant
 
 
 
