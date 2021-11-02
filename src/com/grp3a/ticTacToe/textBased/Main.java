@@ -23,19 +23,33 @@ public class Main {
 	public static void main(String[] args) {
 
 		Random rand = new Random();
-		System.out.println("skriv koordinater För 'X' 1 till 9");
 
-		int xCordinate = scan.nextInt();// tar emot ett värde istället för 2.
-		XMove(xCordinate);// anropar XMove metod som omvandlar xCor till 2 värden och
-		// slänger in 'X' i Playboard
+		boolean oneMoreGame = true;
+		boolean gameOver= false;
 
+		
+
+		while(oneMoreGame) {
+			while(!gameOver) {	// om spel är klart så hoppar programmet inte in i denna loop
+				System.out.println("skriv koordinater För 'X' 1 till 9");
+				int xCordinate = scan.nextInt();// tar emot ett värde istället för 2.
+		XMove(xCordinate);// anropar XMove metod som omvandlar xCor till 2 värden och slänger in 'X' i
+					// Playboard
+				printGameBoard();
+				System.out.println("Computer 'O'");
+				int aIRoll = rand.nextInt(9);
+				OMove(aIRoll);
+				//playBoard[airoll][airoll] = 'O';
+				printGameBoard();
+				if(gameOver) {
+					break;
+				} 
+			}
+		}
+			
 		printGameBoard();
 		//
-		System.out.println("Computer 'O'");
-		int aIRoll = rand.nextInt(9);
-		OMove(aIRoll);
-		//playBoard[airoll][airoll] = 'O';
-		printGameBoard();
+	
 		scan.close();
 	}
 
