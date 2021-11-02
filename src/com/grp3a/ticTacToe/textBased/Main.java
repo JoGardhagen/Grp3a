@@ -10,10 +10,10 @@ public class Main {
     static char [][] playBoard = new char [3][3];
 
     public static void main(String[] args) {
-    	Random rand= new Random();
-    	Scanner scan = new Scanner(System.in);
+    Random rand= new Random();
+    Scanner scan = new Scanner(System.in);
     
-    
+    System.out.println("skriv koordinater För 'X'");
     int row =scan.nextInt();
     int column =scan.nextInt();
 
@@ -23,6 +23,7 @@ public class Main {
     int airoll=rand.nextInt(2);
     playBoard[airoll][airoll]='O';
     printGameBoard();
+    scan.close();
     }
 // Måla ut spelplanen med hjälp av en nestlad for-loop 3x3
     public static void printGameBoard() {
