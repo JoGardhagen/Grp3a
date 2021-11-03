@@ -4,11 +4,9 @@ import java.util.*;
 
 public class Main {
 	/*
-	 * Check Lista för arbetet :: // notera klar när klar. 
-	 * ? switch stat för aiRoll.: Jocke Fixar // Note Fixat // note Dubble fixad :) 
-	 * ? gameLoop för att få spelet att fortsätta : Anna Fixar 
-	 * ? win or Lose logit. 
-	 * ? replay funk
+	 * Check Lista för arbetet :: // notera klar när klar. ? switch stat för
+	 * aiRoll.: Jocke Fixar // Note Fixat // note Dubble fixad :) ? gameLoop för att
+	 * få spelet att fortsätta : Anna Fixar ? win or Lose logit. ? replay funk
 	 * 
 	 * 
 	 * 
@@ -21,26 +19,25 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		
 		gameLoop();
 		scan.close();
-		
+
 	}
 
-	public static void gameLoop() {							//Metod för SpelLoopen mellan X och O 
+	public static void gameLoop() { // Metod för SpelLoopen mellan X och O
 		boolean oneMoreGame = true;
 		boolean gameOver = false;
 		Random rand = new Random();
-		
+
 		while (oneMoreGame) {
-			while (!gameOver) { 					// om spel är klart så hoppar programmet inte in i denna loop
-				System.out.println("skriv koordinater För 'X' 1 till 9");
-				int xCordinate = scan.nextInt();// tar emot ett värde istället för 2.
-				XMove(xCordinate);// anropar XMove metod som omvandlar xCor till 2 värden och slänger in 'X' i
-								  // Playboard
+			while (!gameOver) { // om spel är klart så hoppar programmet inte in i denna loop
+				System.out.println("Skriv koordinater För 'X' 1 till 9");
+				int xCordinate = scan.nextInt(); // tar emot ett värde istället för 2.
+				XMove(xCordinate); // anropar XMove metod som omvandlar xCor till 2 värden och slänger in 'X' i
+									// Playboard
 				printGameBoard();
-				System.out.println("Computer 'O'");
-				int aIRoll = rand.nextInt(9)+1;
+				System.out.println("Computer 'O'"); // KOLLA if Sats om man kan ha det i While loopen
+				int aIRoll = rand.nextInt(9) + 1;
 				OMove(aIRoll);
 				printGameBoard();
 				if (gameOver) {
@@ -73,80 +70,89 @@ public class Main {
 		case 1:
 			row = 0;
 			column = 0;
-			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
-			{
-			return playBoard[row][column] = 'X';
-			}
-			else System.out.println(" Ivalid Move");
-			
+			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
+				return playBoard[row][column] = 'X';
+			} else
+				System.out.println("Ruta upptagen, Försök igen ");
+			// Om användare eller Dator skriver samma ruta så loopar spelPlanen och anv får
+			// skriva igen
+			gameLoop();
 
 		case 2:
 			row = 0;
 			column = 1;
-			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
-			{
-			return playBoard[row][column] = 'X';
-			}
-			else System.out.println(" Ivalid Move");
+			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
+				return playBoard[row][column] = 'X';
+			} else
+				System.out.println("Ruta upptagen, Försök igen ");
+
+			gameLoop();
 
 		case 3:
 			row = 0;
 			column = 2;
-			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
-			{
-			return playBoard[row][column] = 'X';
-			}
-			else System.out.println(" Ivalid Move");
+			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
+				return playBoard[row][column] = 'X';
+			} else
+				System.out.println("Ruta upptagen, Försök igen ");
+
+			gameLoop();
+
 		case 4:
 			row = 1;
 			column = 0;
-			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
-			{
-			return playBoard[row][column] = 'X';
-			}
-			else System.out.println(" Ivalid Move");
+			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
+				return playBoard[row][column] = 'X';
+			} else
+				System.out.println("Ruta upptagen, Försök igen ");
+
+			gameLoop();
 		case 5:
 			row = 1;
 			column = 1;
-			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
-			{
-			return playBoard[row][column] = 'X';
-			}
-			else System.out.println(" Ivalid Move");
+			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
+				return playBoard[row][column] = 'X';
+			} else
+				System.out.println("Ruta upptagen, Försök igen ");
+
+			gameLoop();
 
 		case 6:
 			row = 1;
 			column = 2;
-			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
-			{
-			return playBoard[row][column] = 'X';
-			}
-			else System.out.println(" Ivalid Move");
+			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
+				return playBoard[row][column] = 'X';
+			} else
+				System.out.println("Ruta upptagen, Försök igen ");
+
+			gameLoop();
 		case 7:
 			row = 2;
 			column = 0;
-			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
-			{
-			return playBoard[row][column] = 'X';
-			}
-			else System.out.println(" Ivalid Move");
+			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
+				return playBoard[row][column] = 'X';
+			} else
+				System.out.println("Ruta upptagen, Försök igen ");
+
+			gameLoop();
 		case 8:
 			row = 2;
 			column = 1;
-			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
-			{
-			return playBoard[row][column] = 'X';
-			}
-			else System.out.println(" Ivalid Move");
+			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
+				return playBoard[row][column] = 'X';
+			} else
+				System.out.println("Ruta upptagen, Försök igen ");
 
+			gameLoop();
 		case 9:
 			row = 2;
 			column = 2;
-			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
-			{
-			return playBoard[row][column] = 'X';
-			}
-			else System.out.println(" Ivalid Move");
+			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
+				return playBoard[row][column] = 'X';
+			} else
+				System.out.println("Ruta upptagen, Försök igen ");
+
+			gameLoop();
 
 		}
 		return 0;
@@ -162,80 +168,71 @@ public class Main {
 		case 1:
 			row = 0;
 			column = 0;
-			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
-			{
-			return playBoard[row][column] = 'O';
+			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
+				return playBoard[row][column] = 'O';
 			}
-			//else System.out.println(" Ivalid Move");
+			// else System.out.println(" Ivalid Move");
 
 		case 2:
 			row = 0;
 			column = 1;
-			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
-			{
-			return playBoard[row][column] = 'O';
+			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
+				return playBoard[row][column] = 'O';
 			}
-			//else System.out.println(" Ivalid Move");
+			// else System.out.println(" Ivalid Move");
 
 		case 3:
 			row = 0;
 			column = 2;
-			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
-			{
-			return playBoard[row][column] = 'O';
+			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
+				return playBoard[row][column] = 'O';
 			}
-			//else System.out.println(" Ivalid Move");
+			// else System.out.println(" Ivalid Move");
 		case 4:
 			row = 1;
 			column = 0;
-			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
-			{
-			return playBoard[row][column] = 'O';
+			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
+				return playBoard[row][column] = 'O';
 			}
-			//else System.out.println(" Ivalid Move");
+			// else System.out.println(" Ivalid Move");
 
 		case 5:
 			row = 1;
 			column = 1;
-			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
-			{
-			return playBoard[row][column] = 'O';
+			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
+				return playBoard[row][column] = 'O';
 			}
-			//else System.out.println(" Ivalid Move");
+			// else System.out.println(" Ivalid Move");
 		case 6:
 			row = 1;
 			column = 2;
-			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
-			{
-			return playBoard[row][column] = 'O';
+			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
+				return playBoard[row][column] = 'O';
 			}
-			//else System.out.println(" Ivalid Move");
+			// else System.out.println(" Ivalid Move");
 
 		case 7:
 			row = 2;
 			column = 0;
-			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
-			{
-			return playBoard[row][column] = 'O';
+			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
+				return playBoard[row][column] = 'O';
 			}
-			//else System.out.println(" Ivalid Move");
+			// else System.out.println(" Ivalid Move");
 		case 8:
 			row = 2;
 			column = 1;
-			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
-			{
-			return playBoard[row][column] = 'O';
+			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
+				return playBoard[row][column] = 'O';
 			}
-			//else System.out.println(" Ivalid Move");
+			// else System.out.println(" Ivalid Move");
 
 		case 9:
 			row = 2;
 			column = 2;
-			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
-			{
-			return playBoard[row][column] = 'O';
+			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
+				return playBoard[row][column] = 'O';
 			}
-			//else System.out.println(" Ivalid Move");
+			// else System.out.println(" Ivalid Move");
 
 		}
 		return 0;
