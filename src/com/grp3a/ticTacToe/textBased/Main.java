@@ -6,9 +6,12 @@ public class Main {
 	/*
 	 * Check Lista för arbetet :: // notera klar när klar. ? switch stat för
 	 * aiRoll.: Jocke Fixar // Note Fixat // note Dubble fixad :) ? gameLoop för att
-	 * få spelet att fortsätta : Anna Fixar ? win or Lose logit. ? replay funk
+	 * få spelet att fortsätta : Anna Fixar check// win or Lose logit: check// replay funk // 
+	 * Anna- Nu kan man se vem som vinner men inte om det blir oavgjort och man kan även fortsätta 
+	 * skriva siffror alltså input fast spelet är klart. 
+	 * Så inte helt färdigt men tänker att vi kikar det tillsammns!-Anna//
 	 * 
-	 * 
+	 * Ska vi dela upp det i olika klasser kanske?-Anna
 	 * 
 	 */
 //    ||
@@ -18,30 +21,38 @@ public class Main {
 	static Scanner scan = new Scanner(System.in);
 
 	public static void main(String[] args) {
-
+		System.out.println(" Välkommen till Tic Tac Toe\n\t***\n Du är spelare X!\n\t***");
 		gameLoop();
+		
 		scan.close();
-
 	}
 
 	public static void gameLoop() { // Metod för SpelLoopen mellan X och O
 		boolean oneMoreGame = true;
 		boolean gameOver = false;
 		Random rand = new Random();
-
+		
 		while (oneMoreGame) {
-			while (!gameOver) { // om spel är klart så hoppar programmet inte in i denna loop
-				System.out.println("Skriv koordinater För 'X' 1 till 9");
-				int xCordinate = scan.nextInt(); // tar emot ett värde istället för 2.
-				XMove(xCordinate); // anropar XMove metod som omvandlar xCor till 2 värden och slänger in 'X' i
-									// Playboard
-				printGameBoard();
-				System.out.println("Computer 'O'"); // KOLLA if Sats om man kan ha det i While loopen
+			while (!gameOver) { 					// om spel är klart så hoppar programmet inte in i denna loop
+						System.out.println(" Skriv in en position mellan (1 -9)\n\t***");
+				int xCordinate = scan.nextInt(); 	// tar emot ett värde istället för 2.
+				XMove(xCordinate); 							// anropar XMove metod som omvandlar xCor till 2 värden och slänger in 'X' i   Playboard
+				printGameBoard();							
+				gameOver = isItOver(playBoard);				// Kontrollerar i loopen om Spelare vann /Anna
+	
 				int aIRoll = rand.nextInt(9) + 1;
-				OMove(aIRoll);
-				printGameBoard();
 				if (gameOver) {
 					break;
+				}
+				System.out.println("\t***\nDatorns tur!\n\t***"); 	
+				OMove(aIRoll);								// Datorns random drag
+				printGameBoard();							// Lägger random drag på spelplan och print ut
+				gameOver = isItOver(playBoard);				// Kontrollerar i loopen om Dator vann /Anna
+												
+				// Just nu så kan man fortfarande skriva siffror efter spelet är slut MÅSTE KOLLA UPP DET /Anna
+				if (gameOver) {
+					break;
+					
 				}
 			}
 		}
@@ -73,7 +84,7 @@ public class Main {
 			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
 				return playBoard[row][column] = 'X';
 			} else
-				System.out.println("Ruta upptagen, Försök igen ");
+				System.out.println("Ruta upptagen, Försök igen\n");
 			// Om användare eller Dator skriver samma ruta så loopar spelPlanen och anv får
 			// skriva igen
 			gameLoop();
@@ -239,4 +250,85 @@ public class Main {
 
 	}
 
+	// isItOver metod för att kolla om Player X eller Datorn O vann. 
+	//Högst oklart varför den inte funkar helt men det är fan inte långt ifrån...
+	
+public static boolean isItOver(char [][] playBoard) {
+		// Vågrätt rättning för X och O
+		if (playBoard[0][0] == 'X' && playBoard[0][1] == 'X' && playBoard[0][2]=='X') {
+		System.out.println("\nGRATTIS Du vann!");
+	return true;
+	}	if (playBoard[0][0] == 'O' && playBoard[0][1] == 'O' && playBoard[0][2]=='O') {
+		System.out.println("Datorn vann!");
+	return true;
+	
+	}	if (playBoard[1][0] == 'X' && playBoard[1][1] == 'X' && playBoard[1][2]=='X') {
+		System.out.println("\nGRATTIS Du vann!");
+	return true;
+	}	if (playBoard[1][0] == 'O' && playBoard[1][1] == 'O' && playBoard[1][2]=='O') {
+		System.out.println("Datorn vann!");
+	return true;
+	
+	}	if (playBoard[2][0] == 'X' && playBoard[2][1] == 'X' && playBoard[2][2]=='X') {
+		System.out.println("\nGRATTIS Du vann!");
+	return true;
+	}	if (playBoard[2][0] == 'O' && playBoard[2][1] == 'O' && playBoard[2][2]=='O') {
+		System.out.println("Datorn vann!");
+	return true;
+	
+	}	// Lodrätt rättning för X och O
+		if (playBoard[0][0] == 'X' && playBoard[1][0] == 'X' && playBoard[2][0]=='X') {
+			System.out.println("\nGRATTIS Du vann!");
+	return true;
+	}	
+		if (playBoard[0][0] == 'O' && playBoard[1][0] == 'O' && playBoard[2][0]=='O') {
+		System.out.println("Datorn vann!");
+	return true;
+	}	
+		if (playBoard[0][1] == 'X' && playBoard[1][1] == 'X' && playBoard[2][1]=='X') {
+			System.out.println("\nGRATTIS Du vann!");
+	return true;
+	}	
+		if (playBoard[0][1] == 'O' && playBoard[1][1] == 'O' && playBoard[2][1]=='O') {
+		System.out.println("Datorn vann!");
+	return true;
+	}
+		if (playBoard[0][2] == 'X' && playBoard[1][2] == 'X' && playBoard[2][2]=='X') {
+			System.out.println("\nGRATTIS Du vann!");
+	return true;
+	}
+		if (playBoard[0][2] == 'O' && playBoard[1][2] == 'O' && playBoard[2][2]=='O') {
+		System.out.println("Datorn vann!");
+	return true;
+	} 		
+		// Diagonal rättning för X och O
+		if (playBoard[0][1] == 'X' && playBoard[1][1] == 'X' && playBoard[2][2]=='X') {
+			System.out.println("\nGRATTIS Du vann!");
+	return true;
+	}	
+		if (playBoard[0][1] == 'O' && playBoard[1][1] == 'O' && playBoard[2][2]=='O') {
+		System.out.println("Datorn vann!");
+	return true;
+	}	
+		if (playBoard[2][0] == 'X' && playBoard[1][1] == 'X' && playBoard[0][2]=='X') {
+			System.out.println("\nGRATTIS Du vann!");
+	return true;
+	}	
+		if (playBoard[2][0] == 'O' && playBoard[1][1] == 'O' && playBoard[0][2]=='O') {
+		System.out.println("Datorn vann!");
+	return true;
+	}
+//		//	Detta ska se ifall det blev lika MEN den gör så att alla drag blir " Oavgjort " :)))
+//		if(playBoard[0][0] != '_' && playBoard[0][1] != '_' && playBoard[0][2] != '_' && playBoard[1][0] != '_' && playBoard[1][1] != '_' && playBoard[1][2] != '_' 
+//			&& playBoard[2][0] != '_' && playBoard[2][1] != '_' && playBoard[2][2] != '_' 
+//			
+//			&& playBoard[0][0] != '_' && playBoard[0][1] != '_' && playBoard[0][2] != '_' && playBoard[1][0] != '_' && playBoard[1][1] != '_' && playBoard[1][2] != '_' 
+//			&& playBoard[2][0] != '_' && playBoard[2][1] != '_' && playBoard[2][2] != '_'
+//			) {
+//			System.out.println("Det blev oavgjort!!");
+//			return true;
+//		} 											
+	
+	return false;
+	}
 }
