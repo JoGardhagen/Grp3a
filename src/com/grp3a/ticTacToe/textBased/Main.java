@@ -4,9 +4,11 @@ import java.util.*;
 
 public class Main {
 	/*
-	 * Check Lista för arbetet :: // notera klar när klar. ? switch stat för aiRoll.
-	 * : Jocke Fixar // Note Fixat ? gameLoop för att få spelet att fortsätta : Anna
-	 * Fixar ? win or Lose logit. ? replay funk
+	 * Check Lista för arbetet :: // notera klar när klar. 
+	 * ? switch stat för aiRoll.: Jocke Fixar // Note Fixat // note Dubble fixad :) 
+	 * ? gameLoop för att få spelet att fortsätta : Anna Fixar 
+	 * ? win or Lose logit. 
+	 * ? replay funk
 	 * 
 	 * 
 	 * 
@@ -21,9 +23,8 @@ public class Main {
 
 		
 		gameLoop();
-		printGameBoard();
-	
 		scan.close();
+		
 	}
 
 	public static void gameLoop() {							//Metod för SpelLoopen mellan X och O 
@@ -36,12 +37,11 @@ public class Main {
 				System.out.println("skriv koordinater För 'X' 1 till 9");
 				int xCordinate = scan.nextInt();// tar emot ett värde istället för 2.
 				XMove(xCordinate);// anropar XMove metod som omvandlar xCor till 2 värden och slänger in 'X' i
-				// Playboard
+								  // Playboard
 				printGameBoard();
 				System.out.println("Computer 'O'");
-				int aIRoll = rand.nextInt(9);
+				int aIRoll = rand.nextInt(9)+1;
 				OMove(aIRoll);
-				// playBoard[airoll][airoll] = 'O';
 				printGameBoard();
 				if (gameOver) {
 					break;
@@ -73,47 +73,80 @@ public class Main {
 		case 1:
 			row = 0;
 			column = 0;
+			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
+			{
 			return playBoard[row][column] = 'X';
+			}
+			else System.out.println(" Ivalid Move");
+			
 
 		case 2:
 			row = 0;
 			column = 1;
+			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
+			{
 			return playBoard[row][column] = 'X';
+			}
+			else System.out.println(" Ivalid Move");
 
 		case 3:
 			row = 0;
 			column = 2;
+			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
+			{
 			return playBoard[row][column] = 'X';
-
+			}
+			else System.out.println(" Ivalid Move");
 		case 4:
 			row = 1;
 			column = 0;
+			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
+			{
 			return playBoard[row][column] = 'X';
-
+			}
+			else System.out.println(" Ivalid Move");
 		case 5:
 			row = 1;
 			column = 1;
+			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
+			{
 			return playBoard[row][column] = 'X';
+			}
+			else System.out.println(" Ivalid Move");
 
 		case 6:
 			row = 1;
 			column = 2;
+			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
+			{
 			return playBoard[row][column] = 'X';
-
+			}
+			else System.out.println(" Ivalid Move");
 		case 7:
 			row = 2;
 			column = 0;
+			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
+			{
 			return playBoard[row][column] = 'X';
-
+			}
+			else System.out.println(" Ivalid Move");
 		case 8:
 			row = 2;
 			column = 1;
+			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
+			{
 			return playBoard[row][column] = 'X';
+			}
+			else System.out.println(" Ivalid Move");
 
 		case 9:
 			row = 2;
 			column = 2;
+			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
+			{
 			return playBoard[row][column] = 'X';
+			}
+			else System.out.println(" Ivalid Move");
 
 		}
 		return 0;
@@ -129,47 +162,80 @@ public class Main {
 		case 1:
 			row = 0;
 			column = 0;
+			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
+			{
 			return playBoard[row][column] = 'O';
+			}
+			//else System.out.println(" Ivalid Move");
 
 		case 2:
 			row = 0;
 			column = 1;
+			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
+			{
 			return playBoard[row][column] = 'O';
+			}
+			//else System.out.println(" Ivalid Move");
 
 		case 3:
 			row = 0;
 			column = 2;
+			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
+			{
 			return playBoard[row][column] = 'O';
-
+			}
+			//else System.out.println(" Ivalid Move");
 		case 4:
 			row = 1;
 			column = 0;
+			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
+			{
 			return playBoard[row][column] = 'O';
+			}
+			//else System.out.println(" Ivalid Move");
 
 		case 5:
 			row = 1;
 			column = 1;
+			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
+			{
 			return playBoard[row][column] = 'O';
-
+			}
+			//else System.out.println(" Ivalid Move");
 		case 6:
 			row = 1;
 			column = 2;
+			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
+			{
 			return playBoard[row][column] = 'O';
+			}
+			//else System.out.println(" Ivalid Move");
 
 		case 7:
 			row = 2;
 			column = 0;
+			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
+			{
 			return playBoard[row][column] = 'O';
-
+			}
+			//else System.out.println(" Ivalid Move");
 		case 8:
 			row = 2;
 			column = 1;
+			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
+			{
 			return playBoard[row][column] = 'O';
+			}
+			//else System.out.println(" Ivalid Move");
 
 		case 9:
 			row = 2;
 			column = 2;
+			if ( playBoard[row][column] != 'X' && playBoard[row][column] != 'O' ) 
+			{
 			return playBoard[row][column] = 'O';
+			}
+			//else System.out.println(" Ivalid Move");
 
 		}
 		return 0;
