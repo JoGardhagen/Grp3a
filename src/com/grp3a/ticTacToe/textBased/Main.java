@@ -19,7 +19,8 @@ public class Main {
 
 	static char[][] playBoard = new char[3][3];
 	static Scanner scan = new Scanner(System.in);
-
+	static boolean oneMoreGame = true;
+	static boolean gameOver = false;
 	public static void main(String[] args) {
 		System.out.println(" Välkommen till Tic Tac Toe\n\t***\n Du är spelare X!\n\t***");
 		
@@ -28,8 +29,7 @@ public class Main {
 	}
 
 	public static void gameLoop() { // Metod för SpelLoopen mellan X och O
-		boolean oneMoreGame = true;
-		boolean gameOver = false;
+		
 		Random rand = new Random();
 		
 		while (oneMoreGame) {
@@ -42,7 +42,7 @@ public class Main {
 	
 				int aIRoll = rand.nextInt(9) + 1;
 				if (gameOver) {
-					break;
+					reboot();
 				}
 				System.out.println("\t***\nDatorns tur!\n\t***"); 	
 				OMove(aIRoll);								// Datorns random drag
@@ -51,36 +51,41 @@ public class Main {
 												
 				// Just nu så kan man fortfarande skriva siffror efter spelet är slut MÅSTE KOLLA UPP DET /Anna
 				if (gameOver) {
-					break;
 					
+					reboot();
 				}
-			}		// slut vinge för inre While loop
-			
-		// Kod nedan för gör att man kan välja att avsluta spelet eller köra igen MEN Reset Gameboard funkar ej. Kollar det efter lunch.
-			System.out.println("Vill du spela igen? J/N");
-			scan.nextLine();
-			String answer=scan.nextLine();
-			
-			switch(answer) {
-			case"J":
-			case "j":
-				oneMoreGame = true;
-			startOver(playBoard);
-				gameOver = false;
-				printGameBoard();
-				break;
-				
-			case "N":
-			case "n":
-				oneMoreGame = false;
-				System.out.println("Bye Bye");
-				break;
-				default:
-					break;
 			}
-		}		// yttre while
+		}// slut vinge för inre While loop
+			
+		
 		
 	}
+	public static void reboot() {
+		// Kod nedan för gör att man kan välja att avsluta spelet eller köra igen MEN Reset Gameboard funkar ej. Kollar det efter lunch.
+					System.out.println("Vill du spela igen? J/N");
+					scan.nextLine();
+					String answer=scan.nextLine();
+					
+					switch(answer) {
+					case"J":
+					case "j":
+						oneMoreGame = true;
+					startOver(playBoard);
+						gameOver = false;
+						printGameBoard();
+						break;
+						
+					case "N":
+					case "n":
+						oneMoreGame = false;
+						System.out.println("Bye Bye");
+						break;
+						default:
+							break;
+					}
+				}		// yttre while
+	
+	
 
 // Måla ut spelplanen med hjälp av en nestlad for-loop 3x3
 	public static void printGameBoard() {
