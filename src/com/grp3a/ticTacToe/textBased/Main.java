@@ -9,14 +9,9 @@ public class Main {
 	 * huvud är som sagt inte dirket förklarligt för mina Comrades(Kamrater).GitHub var klurigt först men nu efter en tid börjar jag förstå
 	 * lite hur det fungerar.
 	 * 
-	 * 
-	 * 
-	 *  
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
+	 * Andom jag har inte skrivit så mycket har mest kommit lite med förslag och lärt mig en massa.
+	 * Jag försökte lägga in en else sats för att ai buggade, det fixa ej  problemet, det känns som det ska va där istället för return elr en
+	 * do-loop, men men.
 	 * 
 	 * ----		
 	 * -Annas tankar och lärdom under Grupparbetet-
@@ -226,7 +221,7 @@ public class Main {
 	public static char OMove(int aIRoll) {
 		int row;
 		int column;
-
+		Random rand = new Random();
 		// switch sats som omvandlar det användaren skriver in till x o y koordinater
 		switch (aIRoll) {
 		case 1:
@@ -235,7 +230,7 @@ public class Main {
 			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
 				return playBoard[row][column] = 'O';
 			}
-			// else System.out.println(" Ivalid Move");
+//			else aIRoll = rand.nextInt(9) + 1;
 
 		case 2:
 			row = 0;
@@ -243,22 +238,23 @@ public class Main {
 			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
 				return playBoard[row][column] = 'O';
 			}
-			// else System.out.println(" Ivalid Move");
-
+//			else aIRoll = rand.nextInt(9) + 1;
+			
 		case 3:
 			row = 0;
 			column = 2;
 			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
 				return playBoard[row][column] = 'O';
 			}
-			// else System.out.println(" Ivalid Move");
+//			else aIRoll = rand.nextInt(9) + 1;
+			
 		case 4:
 			row = 1;
 			column = 0;
 			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
 				return playBoard[row][column] = 'O';
 			}
-			// else System.out.println(" Ivalid Move");
+//			else aIRoll = rand.nextInt(9) + 1;
 
 		case 5:
 			row = 1;
@@ -266,14 +262,15 @@ public class Main {
 			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
 				return playBoard[row][column] = 'O';
 			}
-			// else System.out.println(" Ivalid Move");
+//			else aIRoll = rand.nextInt(9) + 1;
+			
 		case 6:
 			row = 1;
 			column = 2;
 			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
 				return playBoard[row][column] = 'O';
 			}
-			// else System.out.println(" Ivalid Move");
+//			else aIRoll = rand.nextInt(9) + 1;
 
 		case 7:
 			row = 2;
@@ -281,14 +278,15 @@ public class Main {
 			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
 				return playBoard[row][column] = 'O';
 			}
-			// else System.out.println(" Ivalid Move");
+//			else aIRoll = rand.nextInt(9) + 1;
+			
 		case 8:
 			row = 2;
 			column = 1;
 			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
 				return playBoard[row][column] = 'O';
 			}
-			// else System.out.println(" Ivalid Move");
+//			else aIRoll = rand.nextInt(9) + 1;
 
 		case 9:
 			row = 2;
@@ -296,7 +294,7 @@ public class Main {
 			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
 				return playBoard[row][column] = 'O';
 			}
-			// else System.out.println(" Ivalid Move");
+//			else aIRoll = rand.nextInt(9) + 1;
 
 		}
 		return 0;
