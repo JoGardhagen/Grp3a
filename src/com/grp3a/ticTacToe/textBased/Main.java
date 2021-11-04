@@ -3,16 +3,12 @@ package com.grp3a.ticTacToe.textBased;
 import java.util.*;
 
 public class Main {
-	/*
-	 * Check Lista för arbetet :: // notera klar när klar. ? switch stat för
-	 * aiRoll.: Jocke Fixar // Note Fixat // note Dubble fixad :) ? gameLoop för att
-	 * få spelet att fortsätta : Anna Fixar check// win or Lose logit: check// replay funk // 
-	 * Anna- Nu kan man se vem som vinner/förlorar men inte om det blir oavgjort och man kan även fortsätta 
-	 * skriva siffror alltså input fast spelet är klart. 
-	 * Så inte helt färdigt men tänker att vi kikar det tillsammns!: Anna//
+	/*	Det har varit mycket roligt och lärorikt uppgift 
 	 * 
-	 * Ska vi dela upp det i olika klasser kanske? : Anna
-	 * While loop för oneMoreGame yes or no : Anna
+	 * Joakim : sammarbetet har gett mig en syn till att bara för att det känns logiskt i mitt 
+	 * huvud är som sagt inte dirket förklarligt för mina Comrades(Kamrater).GitHub var klurigt först men nu efter en tid börjar jag förstå
+	 * lite hur det fungerar.
+	 * 
 	 * 
 	 */
 
