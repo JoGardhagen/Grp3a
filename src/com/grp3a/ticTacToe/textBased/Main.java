@@ -3,12 +3,28 @@ package com.grp3a.ticTacToe.textBased;
 import java.util.*;
 
 public class Main {
-	/*	Det har varit mycket roligt och lärorikt uppgift 
+	/*
 	 * 
-	 * Joakim : sammarbetet har gett mig en syn till att bara för att det känns logiskt i mitt 
-	 * huvud är som sagt inte dirket förklarligt för mina Comrades(Kamrater).GitHub var klurigt först men nu efter en tid börjar jag förstå
-	 * lite hur det fungerar.
 	 * 
+	 * 
+	 * 
+	 *  
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * ----		
+	 * -Annas tankar och lärdom under Grupparbetet-
+	 * Har lärt mig mycket mer om olika metoder, mer om olika loopar, användning utav switch satser 
+	 * och om man sätter static Scanner högst upp så når alla metoder det! Kul hade ingen aning.
+	 * Med tanke på att vi sadlade om i uppgiften så tycker jag att våran grupp har presterat jäkligt bra på den tid som fanns över!
+	 * 
+	 * Vi har stött på lite olika hinder såklart men tillsammans löst det.
+	 * Det jag önska vi hade hunnit med är att peta in en try catch/Exception av något slag kanske
+	 * då saker kan gå fel, men vi har räknat med att Användaren sköter sig exemplariskt!
+	 * Samt andra små fix saker Men vi har ett fungerande spel som talar om vem som vinner :D Och det är vi / jag nöjd med.
 	 * 
 	 */
 
@@ -27,7 +43,7 @@ public class Main {
 	public static void gameLoop() { // Metod för SpelLoopen mellan X och O
 		
 		Random rand = new Random();
-		
+	
 		while (oneMoreGame) {
 			while (!gameOver) { 					// om spel är klart så hoppar programmet inte in i denna loop
 						System.out.println(" Skriv in en position mellan (1 -9)\n\t***");
@@ -38,7 +54,7 @@ public class Main {
 	
 				int aIRoll = rand.nextInt(9) + 1;
 				if (gameOver) {
-					reboot();
+					
 				}
 				System.out.println("\t***\nDatorns tur!\n\t***"); 	
 				OMove(aIRoll);								// Datorns random drag
@@ -47,22 +63,21 @@ public class Main {
 												
 				// Just nu så kan man fortfarande skriva siffror efter spelet är slut MÅSTE KOLLA UPP DET /Anna
 				if (gameOver) {
-					
-					reboot();
+					reboot();		// Låter användaren välja ny omgång.
 				}
-			}
-		}// slut vinge för inre While loop
+			}	// slutvinge för inre While loop
+		}		// slutvinge för yttre While loop
 			
 		
 		
 	}
 	public static void reboot() {
-		// Kod nedan för gör att man kan välja att avsluta spelet eller köra igen MEN Reset Gameboard funkar ej. Kollar det efter lunch.
+		// Kod nedan för gör att man kan välja att spela igen eller avsluta.
 					System.out.println("Vill du spela igen? J/N");
 					scan.nextLine();
 					String answer=scan.nextLine();
 					
-					switch(answer.toUpperCase()) {
+					switch(answer.toUpperCase()) {				// omformaterar input till stora bokstäver.
 					case"J":
 						oneMoreGame = true;
 					startOver(playBoard);
@@ -71,8 +86,8 @@ public class Main {
 						break;
 						
 					case "N":
-						oneMoreGame = false;
-						System.out.println("Bye Bye");
+						oneMoreGame = false;						// Avslutar spelet.
+						System.out.println("Tack för en god match!");
 						break;
 						default:
 							break;
@@ -94,11 +109,8 @@ public class Main {
 		}
 	}
 	
-	/* Denna metod gör så att spelbrädan nollas och man kan börja om ett nytt spel /Anna/
-	 * 
-	* Kanske kan man göra en for loop som i "printGameBoard" metoden?
-	* 
-	*/
+	// Denna metod gör så att spelbrädan nollas och man kan börja om ett nytt spel. Datorn Börjar vid nästa omgång.
+
 	public static void startOver(char [][]playBoard) {
 		playBoard [0][0] = ' ';
 		playBoard [0][1] = ' ';
@@ -110,7 +122,6 @@ public class Main {
 		playBoard [2][1] = ' ';
 		playBoard [2][2] = ' ';
 		
-		
 	}
 
 	public static char XMove(int xCor) {
@@ -120,16 +131,15 @@ public class Main {
 
 		// switch sats som omvandlar det användaren skriver in till x o y koordinater
 		switch (xCor) {
-		case 1:
+		case 1:					
 			row = 0;
 			column = 0;
 			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
 				return playBoard[row][column] = 'X';
 			} else
 				System.out.println("Ruta upptagen, Försök igen\n");
-			// Om användare eller Dator skriver samma ruta så loopar spelPlanen och anv får
-			// skriva igen
-			gameLoop();
+			
+			gameLoop();// Om användare eller Dator skriver samma ruta så hoppar man tillbaka till gameLoop och anv får skriva ett nytt värde.
 
 		case 2:
 			row = 0;
@@ -208,7 +218,6 @@ public class Main {
 			gameLoop();
 		}
 		return 0;
-
 	}
 
 	public static char OMove(int aIRoll) {
@@ -292,7 +301,6 @@ public class Main {
 	}
 
 	// 	isItOver metod för att kolla om Player X eller Datorn O vann. 
-	//	Högst oklart varför den inte funkar helt men det är inte långt ifrån...
 	
 public static boolean isItOver(char [][] playBoard) {
 
