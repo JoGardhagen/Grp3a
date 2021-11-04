@@ -66,9 +66,8 @@ public class Main {
 					scan.nextLine();
 					String answer=scan.nextLine();
 					
-					switch(answer) {
+					switch(answer.toUpperCase()) {
 					case"J":
-					case "j":
 						oneMoreGame = true;
 					startOver(playBoard);
 						gameOver = false;
@@ -76,14 +75,13 @@ public class Main {
 						break;
 						
 					case "N":
-					case "n":
 						oneMoreGame = false;
 						System.out.println("Bye Bye");
 						break;
 						default:
 							break;
 					}
-				}		// yttre while
+				}		
 	
 	
 
