@@ -1,10 +1,13 @@
+
 package com.grp3a.ticTacToe.textBased;
 
 import java.util.*;
 
 public class Main {
-	/*
-	 * 
+	/*	Det har varit mycket roligt och lärorikt uppgift 
+	 * Joakim : sammarbetet har gett mig en syn till att bara för att det känns logiskt i mitt 
+	 * huvud är som sagt inte dirket förklarligt för mina Comrades(Kamrater).GitHub var klurigt först men nu efter en tid börjar jag förstå
+	 * lite hur det fungerar.
 	 * 
 	 * 
 	 * 
@@ -25,7 +28,7 @@ public class Main {
 	 * Det jag önska vi hade hunnit med är att peta in en try catch/Exception av något slag kanske
 	 * då saker kan gå fel, men vi har räknat med att Användaren sköter sig exemplariskt!
 	 * Samt andra små fix saker Men vi har ett fungerande spel som talar om vem som vinner :D Och det är vi / jag nöjd med.
-	 * 
+	 * GitHub var/ är lite bråkig men vi får till det till och från !
 	 */
 
 
