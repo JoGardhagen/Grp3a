@@ -65,7 +65,7 @@ public class Main {
 			case"J":
 			case "j":
 				oneMoreGame = true;
-				
+			startOver(playBoard);
 				gameOver = false;
 				printGameBoard();
 				break;
@@ -78,10 +78,6 @@ public class Main {
 				default:
 					break;
 			}
-			
-			
-			
-			
 		}		// yttre while
 		
 	}
@@ -97,6 +93,25 @@ public class Main {
 			}
 			System.out.println();
 		}
+	}
+	
+	/* Denna metod gör så att spelbrädan nollas och man kan börja om ett nytt spel /Anna/
+	 * 
+	* Kanske kan man göra en for loop som i "printGameBoard" metoden?
+	* 
+	*/
+	public static void startOver(char [][]playBoard) {
+		playBoard [0][0] = ' ';
+		playBoard [0][1] = ' ';
+		playBoard [0][2] = ' ';
+		playBoard [1][0] = ' ';
+		playBoard [1][1] = ' ';
+		playBoard [1][2] = ' ';
+		playBoard [2][0] = ' ';
+		playBoard [2][1] = ' ';
+		playBoard [2][2] = ' ';
+		
+		
 	}
 
 	public static char XMove(int xCor) {
@@ -347,15 +362,12 @@ public static boolean isItOver(char [][] playBoard) {
 	return true;
 	}
 //		//	Detta ska se ifall det blev lika MEN den gör så att alla drag blir " Oavgjort " :)))
-//		if(playBoard[0][0] != 'X' && playBoard[0][1] != 'X' && playBoard[0][2] != 'X' && playBoard[1][0] != 'X' && playBoard[1][1] != 'X' && playBoard[1][2] != 'X' 
-//			&& playBoard[2][0] != 'X' && playBoard[2][1] != 'X' && playBoard[2][2] != 'X' 
-//			
-//			&& playBoard[0][0] != 'O' && playBoard[0][1] != 'O' && playBoard[0][2] != 'O' && playBoard[1][0] != 'O' && playBoard[1][1] != 'O' && playBoard[1][2] != 'O' 
-//			&& playBoard[2][0] != 'O' && playBoard[2][1] != 'O' && playBoard[2][2] != 'O'
-//			) {
+//		else if	(playBoard[0][0] != 'X' && playBoard[0][1] != 'X' && playBoard[0][2] != 'X' 
+//			&& playBoard[1][0] != 'X' && playBoard[1][1] != 'X' && playBoard[1][2] != 'X' 
+//			&& playBoard[2][0] != 'X' && playBoard[2][1] != 'X' && playBoard[2][2] != 'X') {
 //			System.out.println("Det blev oavgjort!!");
 //			return true;
-//		} 		
+//		} 	
 
 	return false;
 	}
