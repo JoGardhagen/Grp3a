@@ -14,5 +14,5 @@ Ombytt Nu 2 varianter 1 Gui
 
 Börjar hända saker vill nu få till logiken :) 
 
-##MileStone reached 
+## MileStone reached 
 Vi har lyckats i princip med allt vi velat :) 
