@@ -124,3 +124,18 @@ public class ThaFrame2 extends JFrame implements ActionListener {
 		}
 	}
 }
+/*ArbetsHypotes 
+ * för att lösa problemet att se om användaren har vunnit är min idé :
+ * jag tänker mig PlayChecken för Tic Tac Toe var 8 möjliga sätt man kan vinna på, kan man inte tänka sig arrayen {1,2,3,4,5,6,7,8,9}
+
+{x,x,x,4,5,6,7,8,9} == win win        1,2,3
+{1,2,3,x,x,x,7,8,9} == win win        4,5,6
+{1,2,3,4,5,6,x,x,x} == win win        7,8,9
+{x,2,3,x,5,6,x,8,9} == win win
+{1,x,3,4,x,6,7,x,9} == win win
+
+man kollar om arrayen stämmer överrens och ger då ut ett meddelande att man har vunnit eller datorn har vunnit
+blev ingen sådan lösning för att vi valde att börja om från början med en TEXTBASED variant istället 
+men gissningsvis tror jag att detta hade varit lösningen.. 
+
+ * */

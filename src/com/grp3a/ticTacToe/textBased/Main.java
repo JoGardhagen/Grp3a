@@ -5,9 +5,13 @@ import java.util.*;
 
 public class Main {
 	/*	Det har varit mycket roligt och lärorikt uppgift 
+	 * 
 	 * Joakim : sammarbetet har gett mig en syn till att bara för att det känns logiskt i mitt 
 	 * huvud är som sagt inte dirket förklarligt för mina Comrades(Kamrater).GitHub var klurigt först men nu efter en tid börjar jag förstå
-	 * lite hur det fungerar.
+	 * lite hur det fungerar.Det finns mkt mer i detta projekt jag hade velat göra men tiden räckte inte riktigt till 
+	 * och det är dags att avsluta. Det stora hela jag har lärt mig med denna uppgift är att försöka strukurera 
+	 * arbetet tidigt iställt för att kasta sig in i arbetet istället för att ta tag i strukturen 
+	 * när problemen uppstår..... :) 
 	 * 
 	 * Andom jag har inte skrivit så mycket har mest kommit lite med förslag och lärt mig en massa.
 	 * Jag försökte lägga in en else sats för att ai buggade, det fixa ej  problemet, det känns som det ska va där istället för return elr en
@@ -26,8 +30,8 @@ public class Main {
 	 * GitHub var/ är lite bråkig men vi får till det till och från !
 	 */
 
-
-	static char[][] playBoard = new char[3][3];
+// globala Variabler , deklarerade här för 
+	static char[][] playBoard = new char[3][3]; 
 	static Scanner scan = new Scanner(System.in);
 	static boolean oneMoreGame = true;
 	static boolean gameOver = false;
@@ -75,7 +79,7 @@ public class Main {
 					scan.nextLine();
 					String answer=scan.nextLine();
 					
-					switch(answer.toUpperCase()) {				// omformaterar input till stora bokstäver.
+					switch(answer.toUpperCase()) {// omformaterar input till stora bokstäver.
 					case"J":
 						oneMoreGame = true;
 					startOver(playBoard);
@@ -108,7 +112,7 @@ public class Main {
 	}
 	
 	// Denna metod gör så att spelbrädan nollas och man kan börja om ett nytt spel. Datorn Börjar vid nästa omgång.
-
+	// Nollställer spelbrädet.
 	public static void startOver(char [][]playBoard) {
 		playBoard [0][0] = ' ';
 		playBoard [0][1] = ' ';
@@ -132,8 +136,9 @@ public class Main {
 		case 1:					
 			row = 0;
 			column = 0;
+			//Om Array elementet för index Row , Column inte är lika med X eller O
 			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
-				return playBoard[row][column] = 'X';
+				return playBoard[row][column] = 'X';// Om element för index var blankt Skriv in X.
 			} else
 				System.out.println("Ruta upptagen, Försök igen\n");
 			
@@ -227,10 +232,11 @@ public class Main {
 		case 1:
 			row = 0;
 			column = 0;
+			//Om Array elementet för index Row , Column inte är lika med X eller O
 			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
 				return playBoard[row][column] = 'O';
 			}
-//			else aIRoll = rand.nextInt(9) + 1;
+
 
 		case 2:
 			row = 0;
@@ -238,7 +244,7 @@ public class Main {
 			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
 				return playBoard[row][column] = 'O';
 			}
-//			else aIRoll = rand.nextInt(9) + 1;
+
 			
 		case 3:
 			row = 0;
@@ -246,7 +252,7 @@ public class Main {
 			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
 				return playBoard[row][column] = 'O';
 			}
-//			else aIRoll = rand.nextInt(9) + 1;
+
 			
 		case 4:
 			row = 1;
@@ -254,7 +260,7 @@ public class Main {
 			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
 				return playBoard[row][column] = 'O';
 			}
-//			else aIRoll = rand.nextInt(9) + 1;
+
 
 		case 5:
 			row = 1;
@@ -262,7 +268,7 @@ public class Main {
 			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
 				return playBoard[row][column] = 'O';
 			}
-//			else aIRoll = rand.nextInt(9) + 1;
+
 			
 		case 6:
 			row = 1;
@@ -270,7 +276,7 @@ public class Main {
 			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
 				return playBoard[row][column] = 'O';
 			}
-//			else aIRoll = rand.nextInt(9) + 1;
+
 
 		case 7:
 			row = 2;
@@ -278,7 +284,7 @@ public class Main {
 			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
 				return playBoard[row][column] = 'O';
 			}
-//			else aIRoll = rand.nextInt(9) + 1;
+
 			
 		case 8:
 			row = 2;
@@ -286,7 +292,7 @@ public class Main {
 			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
 				return playBoard[row][column] = 'O';
 			}
-//			else aIRoll = rand.nextInt(9) + 1;
+
 
 		case 9:
 			row = 2;
@@ -294,7 +300,7 @@ public class Main {
 			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
 				return playBoard[row][column] = 'O';
 			}
-//			else aIRoll = rand.nextInt(9) + 1;
+
 
 		}
 		return 0;
@@ -369,6 +375,9 @@ public static boolean isItOver(char [][] playBoard) {
 		System.out.println("Datorn vann!");
 	return true;
 	}
+		
+		// vi hade en arbetsHypotés för att lösa Oavgjort
+		// finns många idéer på ritbordet men vi har tyvär inte lyckats med något än. . . 
 //		//	Detta ska se ifall det blev lika MEN den gör så att alla drag blir " Oavgjort " :)))
 //		else if	(playBoard[0][0] != 'X' && playBoard[0][1] != 'X' && playBoard[0][2] != 'X' 
 //			&& playBoard[1][0] != 'X' && playBoard[1][1] != 'X' && playBoard[1][2] != 'X' 
