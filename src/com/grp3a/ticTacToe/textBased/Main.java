@@ -16,13 +16,13 @@ public class Main {
 	 * ----		
 	 * -Annas tankar och lärdom under Grupparbetet-
 	 * Har lärt mig mycket mer om olika metoder, mer om olika loopar, användning utav switch satser 
-	 * och om man sätter static Scanner högst upp så når alla metoder det! Kul hade ingen aning.
+	 * och om man sätter static Scanner t.ex högst upp så når alla metoder det! Kul hade ingen aning.
 	 * Med tanke på att vi sadlade om i uppgiften så tycker jag att våran grupp har presterat jäkligt bra på den tid som fanns över!
 	 * 
-	 * Vi har stött på lite olika hinder såklart men tillsammans löst det.
+	 * Vi har stött på lite olika hinder såklart men tillsammans löst det så gott vi kunnat.
 	 * Det jag önska vi hade hunnit med är att peta in en try catch/Exception av något slag kanske
 	 * då saker kan gå fel, men vi har räknat med att Användaren sköter sig exemplariskt!
-	 * Samt andra små fix saker Men vi har ett fungerande spel som talar om vem som vinner :D Och det är vi / jag nöjd med.
+	 * Samt andra små fix saker Men vi har ett fungerande spel (ish) som talar om vem som vinner :D Så det är ju bra.
 	 * GitHub var/ är lite bråkig men vi får till det till och från !
 	 */
 
@@ -57,11 +57,11 @@ public class Main {
 				System.out.println("\t***\nDatorns tur!\n\t***"); 	
 				OMove(aIRoll);								// Datorns random drag
 				printGameBoard();							// Lägger random drag på spelplan och print ut
-				gameOver = isItOver(playBoard);				// Kontrollerar i loopen om Dator vann /Anna
+				gameOver = isItOver(playBoard);				// Kontrollerar i loopen om Dator vann 
 												
-				// Just nu så kan man fortfarande skriva siffror efter spelet är slut MÅSTE KOLLA UPP DET /Anna
+				
 				if (gameOver) {
-					reboot();		// Låter användaren välja ny omgång.
+					reboot();		// Låter användaren välja ny omgång eller avsluta spelet.
 				}
 			}	// slutvinge för inre While loop
 		}		// slutvinge för yttre While loop
@@ -145,7 +145,7 @@ public class Main {
 			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
 				return playBoard[row][column] = 'X';
 			} else
-				System.out.println("Ruta upptagen, Försök igen ");
+				System.out.println("Ruta upptagen, Försök igen\n");
 
 			gameLoop();
 
@@ -155,7 +155,7 @@ public class Main {
 			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
 				return playBoard[row][column] = 'X';
 			} else
-				System.out.println("Ruta upptagen, Försök igen ");
+				System.out.println("Ruta upptagen, Försök igen\n");
 
 			gameLoop();
 
@@ -165,7 +165,7 @@ public class Main {
 			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
 				return playBoard[row][column] = 'X';
 			} else
-				System.out.println("Ruta upptagen, Försök igen ");
+				System.out.println("Ruta upptagen, Försök igen\n");
 
 			gameLoop();
 		case 5:
@@ -174,7 +174,7 @@ public class Main {
 			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
 				return playBoard[row][column] = 'X';
 			} else
-				System.out.println("Ruta upptagen, Försök igen ");
+				System.out.println("Ruta upptagen, Försök igen\n");
 
 			gameLoop();
 
@@ -184,7 +184,7 @@ public class Main {
 			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
 				return playBoard[row][column] = 'X';
 			} else
-				System.out.println("Ruta upptagen, Försök igen ");
+				System.out.println("Ruta upptagen, Försök igen\n");
 
 			gameLoop();
 		case 7:
@@ -193,7 +193,7 @@ public class Main {
 			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
 				return playBoard[row][column] = 'X';
 			} else
-				System.out.println("Ruta upptagen, Försök igen ");
+				System.out.println("Ruta upptagen, Försök igen\n");
 
 			gameLoop();
 		case 8:
@@ -202,7 +202,7 @@ public class Main {
 			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
 				return playBoard[row][column] = 'X';
 			} else
-				System.out.println("Ruta upptagen, Försök igen ");
+				System.out.println("Ruta upptagen, Försök igen\n");
 
 			gameLoop();
 		case 9:
@@ -211,7 +211,7 @@ public class Main {
 			if (playBoard[row][column] != 'X' && playBoard[row][column] != 'O') {
 				return playBoard[row][column] = 'X';
 			} else
-				System.out.println("Ruta upptagen, Försök igen ");
+				System.out.println("Ruta upptagen, Försök igen\n");
 
 			gameLoop();
 		}
@@ -221,7 +221,7 @@ public class Main {
 	public static char OMove(int aIRoll) {
 		int row;
 		int column;
-		Random rand = new Random();
+	
 		// switch sats som omvandlar det användaren skriver in till x o y koordinater
 		switch (aIRoll) {
 		case 1:
